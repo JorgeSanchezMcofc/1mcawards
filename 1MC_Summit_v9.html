@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1 Million Cups - 2026 Summit Awards</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --orange:#F76B1C;
+  --orange-light:#FDECD8;
+  --dark:#4F463D;
+  --dark2:#3A332C;
+  --blue:#1F98F4;
+  --blue-light:#E8F4FE;
+  --bg:#EEEEEE;
+  --map-bg:#D8D5D0;
+  --white:#FFFFFF;
+  --muted:#7A706A;
+  --border:#C4BFB9;
+  --teal:#03A6A7;
+  --gold:#E8A800;
+  --body:'Roboto',sans-serif;
+  --condensed:'Roboto Condensed',sans-serif;
+}
+body{font-family:var(--body);background:var(--bg);color:var(--dark);margin:0}
+
+/* HERO */
+.hero{background:var(--dark2);position:relative}
+.hero-top-bar{height:4px;background:var(--orange)}
+.hero-inner{max-width:900px;margin:0 auto;padding:2.75rem 2rem 2.5rem}
+.hero-eyebrow{font-family:var(--condensed);font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
+.hero-eyebrow::before{content:'';width:20px;height:2px;background:var(--orange)}
+.hero h1{font-family:var(--condensed);font-size:clamp(36px,5.5vw,60px);font-weight:700;color:#fff;line-height:1.05;letter-spacing:-.01em;margin-bottom:1rem}
+.hero h1 span{color:var(--orange)}
+.hero-desc{font-size:14px;font-weight:300;color:rgba(255,255,255,.6);line-height:1.7;max-width:520px}
+
+/* CONTENT */
+.content{max-width:900px;margin:0 auto;padding:2.5rem 2rem}
+.sec-label{font-family:var(--condensed);font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--orange);display:flex;align-items:center;gap:10px;margin-bottom:.6rem}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--border)}
+.sec-title{font-family:var(--condensed);font-size:clamp(24px,4vw,36px);font-weight:700;color:var(--dark2);line-height:1.1;margin-bottom:.35rem}
+.sec-sub{font-size:13px;color:var(--muted);margin-bottom:2rem}
+
+/* ECO BANNER */
+.eco-banner{background:var(--white);border:1px solid var(--border);border-radius:4px;border-top:3px solid var(--orange);padding:1.75rem 2rem;margin-bottom:2rem;display:flex;gap:2rem;align-items:center}
+.eco-left{flex:1}
+.eco-tag{font-family:var(--condensed);font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:.4rem}
+.eco-title{font-family:var(--condensed);font-size:clamp(17px,2.5vw,22px);font-weight:700;color:var(--dark2);margin-bottom:.5rem;line-height:1.1}
+.eco-body{font-size:13px;color:var(--muted);line-height:1.65}
+.eco-right{display:flex;flex-direction:column;gap:.5rem;align-items:flex-end;flex-shrink:0}
+.eco-pill{font-family:var(--condensed);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:3px;background:var(--orange-light);border:1px solid rgba(247,107,28,.25);color:var(--orange);white-space:nowrap}
+.eco-plus{font-size:18px;color:var(--border);text-align:center}
+
+/* TABS */
+.tabs{display:flex;gap:0;border-bottom:2px solid var(--border);margin-bottom:1.5rem}
+.tab{font-family:var(--condensed);font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.6rem 1.5rem;background:transparent;border:none;cursor:pointer;color:var(--muted);border-bottom:3px solid transparent;margin-bottom:-2px;transition:all .15s}
+.tab.active{color:var(--orange);border-bottom-color:var(--orange)}
+.tab:hover:not(.active){color:var(--dark)}
+
+/* CARDS */
+.grid{display:none;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.grid.on{display:flex}
+.card{background:var(--white);padding:1.4rem 1.5rem;display:grid;grid-template-columns:3px 1fr;gap:0 1.1rem;transition:background .15s}
+.card:hover{background:#FDFCFA}
+.c-bar{background:var(--orange);border-radius:1px}
+.c-bar.eco{background:var(--teal)}
+.c-tag{font-family:var(--condensed);font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--orange);margin-bottom:.45rem;display:block}
+.c-tag.eco{color:var(--teal)}
+.c-name{font-family:var(--condensed);font-size:clamp(16px,2.2vw,20px);font-weight:700;color:var(--dark2);line-height:1.1;margin-bottom:.25rem}
+.c-tagline{font-size:13px;color:var(--muted);font-style:italic;margin-bottom:.65rem}
+.c-desc{font-size:13px;color:var(--dark);line-height:1.65;margin-bottom:.65rem;opacity:.85}
+.c-measure{background:var(--blue-light);border-left:2px solid var(--blue);padding:.55rem .85rem;font-size:12px;color:var(--dark);line-height:1.6;border-radius:0 2px 2px 0}
+.c-measure strong{color:#1270B8;font-weight:700}
+.c-note{font-size:11px;color:var(--muted);font-style:italic;margin:.35rem 0}
+
+/* MAP SECTION - warm grey background */
+.map-section{background:var(--map-bg);border-top:1px solid #BDB9B4;border-bottom:1px solid #BDB9B4}
+.map-content{max-width:900px;margin:0 auto;padding:2.5rem 2rem 0}
+.map-controls{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin-bottom:.85rem}
+.map-lbl{font-family:var(--condensed);font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-right:.25rem}
+.tog{display:flex;align-items:center;gap:6px;padding:5px 12px;border-radius:3px;border:1px solid var(--border);background:rgba(255,255,255,.5);cursor:pointer;font-family:var(--condensed);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;transition:all .15s;color:var(--muted)}
+.tog .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.tog.on-1mc{border-color:rgba(247,107,28,.5);background:var(--orange-light);color:var(--orange)}
+.tog.on-ft{border-color:#999;background:rgba(255,255,255,.7);color:var(--dark)}
+.tog.on-both{border-color:rgba(232,168,0,.6);background:rgba(255,243,180,.5);color:#7A6000}
+.tog.off{opacity:.3}
+
+/* Map canvas - light, easy on the eye */
+.map-canvas{position:relative;background:#C8C4BE;border-radius:3px;overflow:hidden;border:1px solid #AEA9A3}
+svg#usmap{display:block;width:100%;cursor:crosshair}
+
+.tt{position:absolute;pointer-events:none;background:var(--dark2);border:1px solid rgba(247,107,28,.4);border-radius:3px;padding:8px 12px;font-size:12px;font-family:var(--body);opacity:0;transition:opacity .12s;z-index:10;white-space:nowrap}
+.tt-city{font-weight:700;font-size:13px;color:#fff}
+.tt-reg{margin-top:2px;font-size:11px;color:rgba(255,255,255,.45)}
+.tt-badge{display:inline-block;margin-top:5px;padding:2px 8px;border-radius:2px;font-size:10px;font-weight:700;font-family:var(--condensed);letter-spacing:.08em;text-transform:uppercase}
+.tb-both{background:rgba(232,168,0,.2);color:#7A6000;border:1px solid rgba(232,168,0,.4)}
+.tb-1mc{background:var(--orange-light);color:var(--orange);border:1px solid rgba(247,107,28,.3)}
+.tb-ft{background:rgba(0,0,0,.08);color:var(--dark);border:1px solid rgba(0,0,0,.15)}
+
+.map-legend{display:flex;gap:1.25rem;flex-wrap:wrap;padding:.85rem 0 0}
+.leg{display:flex;align-items:center;gap:6px;font-family:var(--condensed);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.leg-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.leg-gold{width:11px;height:11px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 3px rgba(232,168,0,.25);flex-shrink:0}
+
+/* STATS */
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin:1.5rem 0 0;border-radius:3px;overflow:hidden;border:1px solid var(--border)}
+.stat{background:rgba(255,255,255,.6);padding:1.25rem 1.5rem}
+.stat-n{font-family:var(--condensed);font-size:38px;font-weight:700;line-height:1;display:block}
+.stat-lbl{font-family:var(--condensed);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:5px;display:block}
+.stat-sub{font-size:10px;color:#AEA9A3;letter-spacing:.06em;text-transform:uppercase;margin-top:2px;display:block}
+
+/* FOOTER */
+.footer{background:var(--dark2);border-top:1px solid rgba(0,0,0,.2);padding:1.5rem 2rem;text-align:center}
+.footer-inner{max-width:900px;margin:0 auto}
+.footer p{font-size:11px;color:rgba(255,255,255,.25);letter-spacing:.06em;line-height:2;font-family:var(--condensed);text-transform:uppercase}
+.footer span{color:var(--orange)}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-top-bar"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">2026 Summit Awards</div>
+    <h1>One Ecosystem.<br><span>Two</span> Programs.<br>Every Community.</h1>
+    <p class="hero-desc">1 Million Cups and Kauffman FastTrac share a mission — build the conditions where entrepreneurs thrive. Explore every award, every community, every overlap.</p>
+  </div>
+</div>
+
+<!-- AWARDS -->
+<div class="content">
+  <div class="sec-label">Recognition</div>
+  <div class="sec-title">Summit Awards 2026</div>
+  <div class="sec-sub">Kansas City, MO  ·  July 28–30, 2026</div>
+
+  <div class="eco-banner">
+    <div class="eco-left">
+      <div class="eco-tag">Shared Award — Both Programs</div>
+      <div class="eco-title">The Ecosystem Builder Award</div>
+      <div class="eco-body">One award bridges both programs. It belongs to the affiliate that chose both lanes — delivering FastTrac cohorts and running a 1MC community in the same ecosystem.</div>
+    </div>
+    <div class="eco-right">
+      <span class="eco-pill">1 Million Cups</span>
+      <span class="eco-plus">+</span>
+      <span class="eco-pill">FastTrac</span>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="showTab('1mc')" id="tab-1mc">1 Million Cups Awards</button>
+    <button class="tab" onclick="showTab('ft')" id="tab-ft">FastTrac Awards</button>
+  </div>
+
+  <!-- 1MC AWARDS -->
+  <div id="awards-1mc" class="grid on">
+    <div class="card">
+      <div class="c-bar"></div>
+      <div class="c-inner">
+        <span class="c-tag">Community Engagement · By Region</span>
+        <div class="c-name">Community Engagement Award</div>
+        <div class="c-tagline">Sustained attendance, connection, and community momentum.</div>
+        <div class="c-desc">Some communities fill chairs. Others build movements. This award goes to the community that made showing up a habit — where attendance signals trust, relevance, and belonging.</div>
+        <div class="c-measure"><strong>Measured by:</strong> Highest average QR attendance per event during the last year.</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="c-bar"></div>
+      <div class="c-inner">
+        <span class="c-tag">Entrepreneur Journey · By Region</span>
+        <div class="c-name">Entrepreneur Journey Excellence Award</div>
+        <div class="c-tagline">A seamless, high-quality experience from application to stage.</div>
+        <div class="c-desc">The communities that honor every presenter’s journey with care and intentionality create something more than an event. They create a launchpad.</div>
+        <div class="c-measure"><strong>Measured by:</strong> Most complete presentations in the 1MC website during the last year.</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="c-bar"></div>
+      <div class="c-inner">
+        <span class="c-tag">Growth & Momentum · By Region</span>
+        <div class="c-name">Rising Star Award</div>
+        <div class="c-tagline">New communities building something powerful — fast.</div>
+        <div class="c-desc">Being new is not a disadvantage. The energy and urgency of a younger community is exactly what this award celebrates.</div>
+        <div class="c-note">Eligibility: Communities active for two years or fewer, actively hosting events.</div>
+        <div class="c-measure"><strong>Measured by:</strong> 100-point composite score — avg attendance/event (28 pts), presentations/month (22 pts), organizer team size (18 pts), pipeline/organizer (12 pts), event cadence (10 pts), sponsors (6 pts), platform login rate (4 pts).</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="c-bar"></div>
+      <div class="c-inner">
+        <span class="c-tag">Spirit & Culture · National</span>
+        <div class="c-name">1MC Spirit Award</div>
+        <div class="c-tagline">The organizer who makes their community feel like home.</div>
+        <div class="c-desc">This award does not go to the community with the most data points. It goes to the person who shows up every week and makes it matter — building a joyful, welcoming space for every entrepreneur who walks through the door.</div>
+        <div class="c-measure"><strong>Nominations:</strong> Submitted by Lead Organizers. Window: June 1–30, 2026. Submit to jcopper@1millioncups.com.</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="c-bar eco"></div>
+      <div class="c-inner">
+        <span class="c-tag eco">Ecosystem · Shared Award</span>
+        <div class="c-name">The Ecosystem Builder Award</div>
+        <div class="c-tagline">Full commitment to the Kauffman vision across both programs.</div>
+        <div class="c-desc">This award goes to the affiliate delivering FastTrac cohorts and running a 1MC community in the same ecosystem — not just a program partner, a movement builder.</div>
+        <div class="c-measure"><strong>Measured by:</strong> Total cohorts delivered combined with a weighted 1MC member count.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FASTTRAC AWARDS -->
+  <div id="awards-ft" class="grid">
+    <div class="card">
+      <div class="c-bar"></div>
+      <div class="c-inner">
+        <span class="c-tag">Program Delivery · National</span>
+        <div class="c-name">The High Impact Affiliate Award</div>
+        <div class="c-tagline">Program delivery at scale.</div>
+        <div class="c-desc">Some affiliates do the work quietly. This one does it loudly, consistently, and at a volume that moves the needle for the entire network. This award belongs to the organization that showed up the most for entrepreneurs this year, running cohort after cohort and putting more founders through FastTrac than anyone else in the network.</div>
+        <div class="c-measure"><strong>Measured by:</strong> Highest number of FastTrac cohorts delivered in the past 12 months. Tiebreaker: total cohorts delivered lifetime.</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="c-bar"></div>
+      <div class="c-inner">
+        <span class="c-tag">Program Delivery · National</span>
+        <div class="c-name">The Sustained Excellence Award</div>
+        <div class="c-tagline">Long-term commitment and consistent delivery.</div>
+        <div class="c-desc">Showing up once is easy. Showing up year after year, cohort after cohort, takes something different. This award honors the affiliate that has made FastTrac a permanent fixture in their community, not a pilot, not a one-time experiment, but a sustained, reliable presence for entrepreneurs who need it most. Longevity multiplied by output. That is the formula.</div>
+        <div class="c-measure"><strong>Measured by:</strong> A composite score of years active as an affiliate multiplied by total cohorts delivered. Score = Years Active × Total Cohorts.</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="c-bar"></div>
+      <div class="c-inner">
+        <span class="c-tag">Growth & Momentum · National</span>
+        <div class="c-name">The Rising Star Affiliate Award</div>
+        <div class="c-tagline">Newer affiliates making strong early progress.</div>
+        <div class="c-desc">Every long-standing affiliate was once brand new. This award recognizes the organization that has wasted no time making an impact, moving fast, delivering cohorts, and building momentum in a way that signals something big is coming. Being new is not a disadvantage here. In fact, the energy and urgency of a newer affiliate is exactly what this award celebrates.</div>
+        <div class="c-note">Eligibility: Affiliates active for 3 years or fewer.</div>
+        <div class="c-measure"><strong>Measured by:</strong> Cohorts delivered divided by years active, rewarding pace over volume.</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="c-bar eco"></div>
+      <div class="c-inner">
+        <span class="c-tag eco">Ecosystem · Shared Award</span>
+        <div class="c-name">The Ecosystem Builder Award</div>
+        <div class="c-tagline">Full commitment to the Kauffman vision across both programs.</div>
+        <div class="c-desc">This award does not go to someone who chose one lane. It goes to the affiliate that saw the full picture and decided to build it all. Delivering FastTrac cohorts and running a 1MC community in the same ecosystem takes coordination, vision, and a deep belief in what entrepreneurship education can do for a community. This organization is not just a program partner. They are a movement builder.</div>
+        <div class="c-measure"><strong>Measured by:</strong> Affiliates that deliver FastTrac cohorts and operate an active 1MC community. Scored by combining total cohorts delivered with a weighted 1MC member count.</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="c-bar"></div>
+      <div class="c-inner">
+        <span class="c-tag">Facilitator Excellence · National</span>
+        <div class="c-name">The Outstanding Facilitator Award</div>
+        <div class="c-tagline">A facilitator who transforms the FastTrac experience from a program into a movement.</div>
+        <div class="c-desc">This award honors the FastTrac facilitator who creates an engaging, memorable cohort experience, brings additional resources to every session, and goes above and beyond to connect entrepreneurs to each other and to the broader ecosystem. They show up before, during, and after the cohort — because for them, it was never just about the content.</div>
+        <div class="c-measure"><strong>Nominated by:</strong> Program Directors, Course Managers, or Fellow Facilitators.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAP - warm grey section background, light map -->
+<div class="map-section">
+  <div class="map-content">
+    <div class="sec-label">Ecosystem Map</div>
+    <div class="sec-title">Where We Are — And Where We Overlap</div>
+    <div class="sec-sub" style="margin-bottom:1rem">179 communities across the US — hover any dot to explore</div>
+    <div class="map-controls">
+      <span class="map-lbl">Show:</span>
+      <button class="tog on-1mc" id="tog-1mc" onclick="togL('1mc')"><span class="dot" style="background:#F76B1C"></span>1 Million Cups</button>
+      <button class="tog on-ft" id="tog-ft" onclick="togL('ft')"><span class="dot" style="background:#888"></span>FastTrac</button>
+      <button class="tog on-both" id="tog-both" onclick="togL('both')"><span class="dot" style="background:#E8A800"></span>Overlap</button>
+    </div>
+    <div class="map-canvas">
+      <div class="tt" id="tt"></div>
+      <svg id="usmap" viewBox="0 0 900 560"></svg>
+    </div>
+    <div class="map-legend">
+      <div class="leg"><span class="leg-dot" style="background:#F76B1C"></span>1 Million Cups only</div>
+      <div class="leg"><span class="leg-dot" style="background:#fff;border:1px solid #555"></span>FastTrac only</div>
+      <div class="leg"><span class="leg-gold"></span>Both programs</div>
+    </div>
+    <div class="stats-row">
+      <div class="stat"><span class="stat-n" style="color:#F76B1C">120</span><span class="stat-lbl">1MC Communities</span><span class="stat-sub">Nationwide</span></div>
+      <div class="stat"><span class="stat-n" style="color:#888">185</span><span class="stat-lbl">FastTrac Affiliates</span><span class="stat-sub">Nationwide</span></div>
+      <div class="stat"><span class="stat-n" style="color:#E8A800">34</span><span class="stat-lbl">Overlap Cities</span><span class="stat-sub">Both programs active</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-inner">
+    <p><span>1 Million Cups®</span>  ·  1millioncups.com   |   <span>Kauffman FastTrac®</span>  ·  fasttrac.org</p>
+    <p>Kauffman Foundation  ·  Kansas City, MO  ·  Summit: July 28–30, 2026</p>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
+<script>
+const L=[{"city":"Albuquerque","state":"NM","region":"West","type":"1mc","lat":35.085,"lon":-106.65},{"city":"Alton","state":"TX","region":"West","type":"both","lat":26.14,"lon":-98.29},{"city":"Amarillo","state":"TX","region":"West","type":"both","lat":35.22,"lon":-101.83},{"city":"Ames","state":"IA","region":"Central","type":"1mc","lat":42.03,"lon":-93.62},{"city":"Anchorage","state":"AK","region":"West","type":"1mc","lat":61.22,"lon":-149.9},{"city":"Ann Arbor","state":"MI","region":"Central","type":"1mc","lat":42.28,"lon":-83.74},{"city":"Arlington","state":"TX","region":"West","type":"1mc","lat":32.74,"lon":-97.11},{"city":"Arnold","state":"MD","region":"East","type":"1mc","lat":39.03,"lon":-76.52},{"city":"Asheville","state":"NC","region":"East","type":"1mc","lat":35.58,"lon":-82.55},{"city":"Atlanta","state":"GA","region":"East","type":"both","lat":33.75,"lon":-84.39},{"city":"Peachtree City","state":"GA","region":"East","type":"both","lat":33.4,"lon":-84.6},{"city":"Austin","state":"TX","region":"West","type":"1mc","lat":30.27,"lon":-97.74},{"city":"Baltimore","state":"MD","region":"East","type":"both","lat":39.29,"lon":-76.61},{"city":"Bentonville","state":"AR","region":"Central","type":"1mc","lat":36.37,"lon":-94.21},{"city":"Bergenfield","state":"NJ","region":"East","type":"1mc","lat":40.93,"lon":-74.0},{"city":"Billings","state":"MT","region":"West","type":"1mc","lat":45.78,"lon":-108.5},{"city":"Bismarck","state":"ND","region":"Central","type":"both","lat":46.81,"lon":-100.78},{"city":"Brenham","state":"TX","region":"West","type":"1mc","lat":30.17,"lon":-96.4},{"city":"Broken Arrow","state":"OK","region":"Central","type":"1mc","lat":36.05,"lon":-95.79},{"city":"Brownsville","state":"TX","region":"West","type":"both","lat":25.9,"lon":-97.5},{"city":"Cedar Rapids","state":"IA","region":"Central","type":"1mc","lat":41.98,"lon":-91.66},{"city":"Charleston","state":"SC","region":"East","type":"1mc","lat":32.78,"lon":-79.94},{"city":"Chicago","state":"IL","region":"Central","type":"1mc","lat":41.88,"lon":-87.63},{"city":"Chico","state":"CA","region":"West","type":"1mc","lat":39.73,"lon":-121.84},{"city":"Clayton","state":"GA","region":"East","type":"1mc","lat":34.88,"lon":-83.4},{"city":"Clermont","state":"FL","region":"East","type":"1mc","lat":28.55,"lon":-81.77},{"city":"College Station","state":"TX","region":"West","type":"1mc","lat":30.63,"lon":-96.34},{"city":"Colorado Springs","state":"CO","region":"West","type":"1mc","lat":38.83,"lon":-104.82},{"city":"Columbia","state":"MO","region":"Central","type":"both","lat":38.95,"lon":-92.33},{"city":"Columbia","state":"SC","region":"East","type":"both","lat":34.0,"lon":-81.03},{"city":"Columbus","state":"OH","region":"Central","type":"both","lat":39.96,"lon":-82.99},{"city":"Houghton","state":"MI","region":"Central","type":"1mc","lat":47.12,"lon":-88.57},{"city":"Dallas","state":"TX","region":"West","type":"both","lat":32.78,"lon":-96.8},{"city":"Daytona Beach","state":"FL","region":"East","type":"both","lat":29.21,"lon":-81.02},{"city":"Denver","state":"CO","region":"West","type":"1mc","lat":39.74,"lon":-104.98},{"city":"Des Moines","state":"IA","region":"Central","type":"both","lat":41.6,"lon":-93.61},{"city":"Ferndale","state":"MI","region":"Central","type":"1mc","lat":42.46,"lon":-83.13},{"city":"Dubuque","state":"IA","region":"Central","type":"1mc","lat":42.5,"lon":-90.66},{"city":"Durham","state":"NC","region":"East","type":"both","lat":35.99,"lon":-78.9},{"city":"Eau Claire","state":"WI","region":"Central","type":"1mc","lat":44.81,"lon":-91.5},{"city":"Eden Prairie","state":"MN","region":"Central","type":"1mc","lat":44.85,"lon":-93.47},{"city":"El Paso","state":"TX","region":"West","type":"1mc","lat":31.76,"lon":-106.49},{"city":"Fairfax","state":"VA","region":"East","type":"both","lat":38.85,"lon":-77.31},{"city":"Fayetteville","state":"NC","region":"East","type":"both","lat":35.05,"lon":-78.88},{"city":"Fort Collins","state":"CO","region":"West","type":"1mc","lat":40.59,"lon":-105.08},{"city":"Fort Worth","state":"TX","region":"West","type":"both","lat":32.75,"lon":-97.33},{"city":"Frisco","state":"TX","region":"West","type":"both","lat":33.15,"lon":-96.82},{"city":"Grand Island","state":"NE","region":"Central","type":"1mc","lat":40.93,"lon":-98.34},{"city":"Grants Pass","state":"OR","region":"West","type":"1mc","lat":42.44,"lon":-123.33},{"city":"Farmington","state":"CT","region":"East","type":"1mc","lat":41.72,"lon":-72.83},{"city":"Greeley","state":"CO","region":"West","type":"1mc","lat":40.42,"lon":-104.71},{"city":"Indianapolis","state":"IN","region":"Central","type":"both","lat":39.77,"lon":-86.16},{"city":"Iowa City","state":"IA","region":"Central","type":"1mc","lat":41.66,"lon":-91.53},{"city":"Irvine","state":"CA","region":"West","type":"1mc","lat":33.68,"lon":-117.79},{"city":"Kalamazoo","state":"MI","region":"Central","type":"1mc","lat":42.29,"lon":-85.59},{"city":"Overland Park","state":"KS","region":"Central","type":"both","lat":38.98,"lon":-94.67},{"city":"Kansas City","state":"MO","region":"Central","type":"both","lat":39.1,"lon":-94.58},{"city":"La Crosse","state":"WI","region":"Central","type":"1mc","lat":43.8,"lon":-91.24},{"city":"Concord","state":"NC","region":"East","type":"1mc","lat":35.41,"lon":-80.58},{"city":"Lakeland","state":"FL","region":"East","type":"1mc","lat":28.04,"lon":-81.95},{"city":"Lawrence","state":"KS","region":"Central","type":"both","lat":38.97,"lon":-95.24},{"city":"Lawton","state":"OK","region":"Central","type":"1mc","lat":34.61,"lon":-98.39},{"city":"Bethlehem","state":"PA","region":"East","type":"1mc","lat":40.62,"lon":-75.37},{"city":"Lima","state":"OH","region":"Central","type":"1mc","lat":40.74,"lon":-84.1},{"city":"Lincoln","state":"NE","region":"Central","type":"1mc","lat":40.81,"lon":-96.68},{"city":"Ashburn","state":"VA","region":"East","type":"1mc","lat":39.04,"lon":-77.49},{"city":"Lubbock","state":"TX","region":"West","type":"1mc","lat":33.58,"lon":-101.86},{"city":"Madison","state":"WI","region":"Central","type":"1mc","lat":43.07,"lon":-89.4},{"city":"Mankato","state":"MN","region":"Central","type":"both","lat":44.16,"lon":-93.99},{"city":"McAllen","state":"TX","region":"West","type":"both","lat":26.2,"lon":-98.23},{"city":"Minneapolis","state":"MN","region":"Central","type":"1mc","lat":44.98,"lon":-93.27},{"city":"Mishawaka","state":"IN","region":"Central","type":"1mc","lat":41.66,"lon":-86.16},{"city":"Conshohocken","state":"PA","region":"East","type":"1mc","lat":40.08,"lon":-75.3},{"city":"Myrtle Beach","state":"SC","region":"East","type":"1mc","lat":33.69,"lon":-78.89},{"city":"Ocala","state":"FL","region":"East","type":"both","lat":29.19,"lon":-82.13},{"city":"Oklahoma City","state":"OK","region":"Central","type":"1mc","lat":35.47,"lon":-97.52},{"city":"Omaha","state":"NE","region":"Central","type":"both","lat":41.26,"lon":-95.94},{"city":"Orem","state":"UT","region":"West","type":"both","lat":40.3,"lon":-111.7},{"city":"Orlando","state":"FL","region":"East","type":"both","lat":28.54,"lon":-81.38},{"city":"Pensacola","state":"FL","region":"East","type":"1mc","lat":30.42,"lon":-87.22},{"city":"Philadelphia","state":"PA","region":"East","type":"both","lat":39.95,"lon":-75.17},{"city":"Plano","state":"TX","region":"West","type":"1mc","lat":33.02,"lon":-96.7},{"city":"Ponca City","state":"OK","region":"Central","type":"both","lat":36.71,"lon":-97.08},{"city":"College Park","state":"MD","region":"East","type":"1mc","lat":38.98,"lon":-76.94},{"city":"Round Rock","state":"TX","region":"West","type":"1mc","lat":30.51,"lon":-97.68},{"city":"Sacramento","state":"CA","region":"West","type":"both","lat":38.58,"lon":-121.49},{"city":"Salt Lake City","state":"UT","region":"West","type":"1mc","lat":40.76,"lon":-111.89},{"city":"San Antonio","state":"TX","region":"West","type":"both","lat":29.42,"lon":-98.49},{"city":"San Diego","state":"CA","region":"West","type":"1mc","lat":32.72,"lon":-117.15},{"city":"Seattle","state":"WA","region":"West","type":"1mc","lat":47.61,"lon":-122.33},{"city":"Springfield","state":"MO","region":"Central","type":"1mc","lat":37.22,"lon":-93.3},{"city":"St. George","state":"UT","region":"West","type":"1mc","lat":37.1,"lon":-113.58},{"city":"St. Petersburg","state":"FL","region":"East","type":"both","lat":27.77,"lon":-82.64},{"city":"Tampa","state":"FL","region":"East","type":"1mc","lat":27.95,"lon":-82.46},{"city":"Hannibal","state":"MO","region":"Central","type":"1mc","lat":39.71,"lon":-91.36},{"city":"Tulsa","state":"OK","region":"Central","type":"both","lat":36.15,"lon":-95.99},{"city":"Wichita","state":"KS","region":"Central","type":"1mc","lat":37.69,"lon":-97.34},{"city":"Wilmington","state":"NC","region":"East","type":"1mc","lat":34.23,"lon":-77.94},{"city":"Marysville","state":"CA","region":"West","type":"1mc","lat":39.15,"lon":-121.59},{"city":"Louisville","state":"KY","region":"Central","type":"ft","lat":38.25,"lon":-85.76},{"city":"Brookeville","state":"MD","region":"East","type":"ft","lat":39.18,"lon":-77.07},{"city":"Charleston","state":"WV","region":"East","type":"ft","lat":38.35,"lon":-81.63},{"city":"Cincinnati","state":"OH","region":"Central","type":"ft","lat":39.1,"lon":-84.51},{"city":"New Orleans","state":"LA","region":"Central","type":"ft","lat":29.95,"lon":-90.07},{"city":"Auburn","state":"AL","region":"East","type":"ft","lat":32.61,"lon":-85.48},{"city":"Edmond","state":"OK","region":"Central","type":"ft","lat":35.65,"lon":-97.48},{"city":"Houston","state":"TX","region":"West","type":"ft","lat":29.76,"lon":-95.37},{"city":"Waco","state":"TX","region":"West","type":"ft","lat":31.55,"lon":-97.15},{"city":"Beaufort","state":"SC","region":"East","type":"ft","lat":32.43,"lon":-80.67},{"city":"Nashville","state":"TN","region":"East","type":"ft","lat":36.17,"lon":-86.78},{"city":"Manhattan","state":"KS","region":"Central","type":"ft","lat":39.18,"lon":-96.57},{"city":"Independence","state":"MO","region":"Central","type":"ft","lat":39.09,"lon":-94.42},{"city":"DeSoto","state":"TX","region":"West","type":"ft","lat":32.6,"lon":-96.86},{"city":"Boerne","state":"TX","region":"West","type":"ft","lat":29.79,"lon":-98.73},{"city":"Fort Lauderdale","state":"FL","region":"East","type":"ft","lat":26.12,"lon":-80.14},{"city":"Los Angeles","state":"CA","region":"West","type":"ft","lat":34.05,"lon":-118.24},{"city":"Brainerd","state":"MN","region":"Central","type":"ft","lat":46.36,"lon":-94.2},{"city":"Beaverton","state":"OR","region":"West","type":"ft","lat":45.49,"lon":-122.8},{"city":"Hollywood","state":"FL","region":"East","type":"ft","lat":26.01,"lon":-80.15},{"city":"Jackson","state":"MS","region":"East","type":"ft","lat":32.3,"lon":-90.18},{"city":"Kankakee","state":"IL","region":"Central","type":"ft","lat":41.12,"lon":-87.86},{"city":"Carson","state":"CA","region":"West","type":"ft","lat":33.83,"lon":-118.28},{"city":"Detroit","state":"MI","region":"Central","type":"ft","lat":42.33,"lon":-83.05},{"city":"Long Beach","state":"CA","region":"West","type":"ft","lat":33.77,"lon":-118.19},{"city":"Kansas City","state":"KS","region":"Central","type":"ft","lat":39.12,"lon":-94.63},{"city":"Memphis","state":"TN","region":"East","type":"ft","lat":35.15,"lon":-90.05},{"city":"Center Line","state":"MI","region":"Central","type":"ft","lat":42.48,"lon":-83.03},{"city":"Clayton","state":"MO","region":"Central","type":"ft","lat":38.65,"lon":-90.32},{"city":"Fort Myers","state":"FL","region":"East","type":"ft","lat":26.64,"lon":-81.87},{"city":"Livonia","state":"MI","region":"Central","type":"ft","lat":42.37,"lon":-83.35},{"city":"Kennesaw","state":"GA","region":"East","type":"ft","lat":34.02,"lon":-84.62},{"city":"Belvidere","state":"IL","region":"Central","type":"ft","lat":42.26,"lon":-88.84},{"city":"Menomonee Falls","state":"WI","region":"Central","type":"ft","lat":43.18,"lon":-88.1},{"city":"North Charleston","state":"SC","region":"East","type":"ft","lat":32.86,"lon":-79.97},{"city":"Raleigh","state":"NC","region":"East","type":"ft","lat":35.78,"lon":-78.64},{"city":"Largo","state":"MD","region":"East","type":"ft","lat":38.9,"lon":-76.83},{"city":"Jamestown","state":"NY","region":"East","type":"ft","lat":42.1,"lon":-79.24},{"city":"Marina del Rey","state":"CA","region":"West","type":"ft","lat":33.98,"lon":-118.45},{"city":"Leesburg","state":"FL","region":"East","type":"ft","lat":28.81,"lon":-81.88},{"city":"Adrian","state":"MI","region":"Central","type":"ft","lat":41.9,"lon":-84.04},{"city":"Center Valley","state":"PA","region":"East","type":"ft","lat":40.55,"lon":-75.38},{"city":"Baton Rouge","state":"LA","region":"Central","type":"ft","lat":30.45,"lon":-91.15},{"city":"Chattanooga","state":"TN","region":"East","type":"ft","lat":35.05,"lon":-85.31},{"city":"Bryans Road","state":"MD","region":"East","type":"ft","lat":38.62,"lon":-77.08},{"city":"Columbia","state":"MD","region":"East","type":"ft","lat":39.22,"lon":-76.86},{"city":"Bend","state":"OR","region":"West","type":"ft","lat":44.06,"lon":-121.31},{"city":"Richmond","state":"VA","region":"East","type":"ft","lat":37.54,"lon":-77.43},{"city":"East Lansing","state":"MI","region":"Central","type":"ft","lat":42.74,"lon":-84.48},{"city":"Bakersfield","state":"CA","region":"West","type":"ft","lat":35.37,"lon":-119.02},{"city":"Olathe","state":"KS","region":"Central","type":"ft","lat":38.88,"lon":-94.82},{"city":"Ladson","state":"SC","region":"East","type":"ft","lat":32.98,"lon":-80.11},{"city":"Gardnerville","state":"NV","region":"West","type":"ft","lat":38.94,"lon":-119.74},{"city":"Las Vegas","state":"NV","region":"West","type":"ft","lat":36.17,"lon":-115.14},{"city":"Flagstaff","state":"AZ","region":"West","type":"ft","lat":35.2,"lon":-111.65},{"city":"New York","state":"NY","region":"East","type":"ft","lat":40.71,"lon":-74.01},{"city":"Topeka","state":"KS","region":"Central","type":"ft","lat":39.05,"lon":-95.69},{"city":"Lenexa","state":"KS","region":"Central","type":"ft","lat":38.95,"lon":-94.73},{"city":"Marrero","state":"LA","region":"Central","type":"ft","lat":29.9,"lon":-90.1},{"city":"Alachua","state":"FL","region":"East","type":"ft","lat":29.78,"lon":-82.43},{"city":"Birmingham","state":"MI","region":"Central","type":"ft","lat":42.55,"lon":-83.21},{"city":"Montrose","state":"CO","region":"West","type":"ft","lat":38.48,"lon":-107.88},{"city":"Crossville","state":"TN","region":"East","type":"ft","lat":35.95,"lon":-85.03},{"city":"McDonough","state":"GA","region":"East","type":"ft","lat":33.45,"lon":-84.15},{"city":"Ada","state":"OK","region":"Central","type":"ft","lat":34.77,"lon":-96.68},{"city":"Cary","state":"NC","region":"East","type":"ft","lat":35.79,"lon":-78.78},{"city":"Denton","state":"TX","region":"West","type":"ft","lat":33.21,"lon":-97.13},{"city":"Milwaukee","state":"WI","region":"Central","type":"ft","lat":43.04,"lon":-87.91},{"city":"Atchison","state":"KS","region":"Central","type":"ft","lat":39.56,"lon":-95.12},{"city":"Savannah","state":"GA","region":"East","type":"ft","lat":32.08,"lon":-81.1},{"city":"Buffalo","state":"NY","region":"East","type":"ft","lat":42.89,"lon":-78.88},{"city":"Danville","state":"IL","region":"Central","type":"ft","lat":40.12,"lon":-87.63},{"city":"Augusta","state":"GA","region":"East","type":"ft","lat":33.47,"lon":-82.01},{"city":"Sarasota","state":"FL","region":"East","type":"ft","lat":27.34,"lon":-82.53},{"city":"Lexington","state":"KY","region":"Central","type":"ft","lat":38.04,"lon":-84.5},{"city":"Aurora","state":"IL","region":"Central","type":"ft","lat":41.76,"lon":-88.32},{"city":"Moorhead","state":"MN","region":"Central","type":"ft","lat":46.87,"lon":-96.77},{"city":"Franklin","state":"TN","region":"East","type":"ft","lat":35.92,"lon":-86.87},{"city":"Wilmington","state":"DE","region":"East","type":"ft","lat":39.75,"lon":-75.55}];
+
+const layers={'1mc':true,'ft':true,'both':true};
+
+function togL(l){
+  layers[l]=!layers[l];
+  const b=document.getElementById('tog-'+l);
+  if(layers[l]){
+    if(l==='1mc')b.className='tog on-1mc';
+    else if(l==='ft')b.className='tog on-ft';
+    else b.className='tog on-both';
+  } else b.className='tog off';
+  renderDots();
+}
+
+function showTab(t){
+  document.getElementById('awards-1mc').className='grid'+(t==='1mc'?' on':'');
+  document.getElementById('awards-ft').className='grid'+(t==='ft'?' on':'');
+  document.getElementById('tab-1mc').className='tab'+(t==='1mc'?' active':'');
+  document.getElementById('tab-ft').className='tab'+(t==='ft'?' active':'');
+}
+
+let proj,dg;
+
+async function init(){
+  const svg=d3.select('#usmap');
+  proj=d3.geoAlbersUsa().scale(1100).translate([450,240]);
+  const path=d3.geoPath().projection(proj);
+  try{
+    const us=await d3.json('https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json');
+    svg.append('g').selectAll('path')
+      .data(topojson.feature(us,us.objects.states).features)
+      .join('path').attr('d',path)
+      .attr('fill','#B8C4C8').attr('stroke','#8A9299').attr('stroke-width',0.8);
+    svg.append('path')
+      .datum(topojson.mesh(us,us.objects.states,(a,b)=>a!==b))
+      .attr('fill','none').attr('stroke','#8A9299').attr('stroke-width',0.6).attr('d',path);
+  }catch(e){
+    svg.append('rect').attr('width',900).attr('height',560).attr('fill','#B8C4C8');
+  }
+  dg=svg.append('g');
+  renderDots();
+  const tt=document.getElementById('tt');
+  const mw=document.querySelector('.map-canvas');
+  svg.on('mousemove',function(ev){
+    const[mx,my]=d3.pointer(ev);
+    const sr=document.getElementById('usmap').getBoundingClientRect();
+    const sx=sr.width/900,sy=sr.height/560;
+    let cl=null,md=Infinity;
+    L.forEach(l=>{
+      const vis=(l.type==='both'&&layers['both'])||(l.type==='1mc'&&layers['1mc'])||(l.type==='ft'&&layers['ft']);
+      if(!vis)return;
+      const p=proj([l.lon,l.lat]);if(!p)return;
+      const d=Math.sqrt(((p[0]*sx)-(mx*sx))**2+((p[1]*sy)-(my*sy))**2);
+      if(d<md){md=d;cl=l;}
+    });
+    if(cl&&md<20){
+      const pl=cl.type==='both'?'1MC + FastTrac':cl.type==='1mc'?'1 Million Cups':'FastTrac';
+      const bc=cl.type==='both'?'tb-both':cl.type==='1mc'?'tb-1mc':'tb-ft';
+      tt.innerHTML='<div class="tt-city">'+cl.city+', '+cl.state+'</div><div class="tt-reg">'+cl.region+' Region</div><span class="tt-badge '+bc+'">'+pl+'</span>';
+      tt.style.opacity='1';
+      const wr=mw.getBoundingClientRect();
+      tt.style.top=(ev.clientY-wr.top-70)+'px';
+      tt.style.left=Math.min(ev.clientX-wr.left+14,wr.width-200)+'px';
+    } else tt.style.opacity='0';
+  });
+  svg.on('mouseleave',()=>tt.style.opacity='0');
+}
+
+function renderDots(){
+  if(!dg)return;
+  dg.selectAll('*').remove();
+  const ord=['ft','1mc','both'];
+  L.filter(d=>(d.type==='both'&&layers['both'])||(d.type==='1mc'&&layers['1mc'])||(d.type==='ft'&&layers['ft']))
+    .slice().sort((a,b)=>ord.indexOf(a.type)-ord.indexOf(b.type))
+    .forEach(l=>{
+      const p=proj([l.lon,l.lat]);if(!p)return;
+      const g=dg.append('g').attr('transform','translate('+p[0]+','+p[1]+')');
+      if(l.type==='both'){
+        g.append('circle').attr('r',10).attr('fill','rgba(232,168,0,0.25)');
+        g.append('circle').attr('r',5).attr('fill','#E8A800').attr('stroke','#7A5800').attr('stroke-width',1);
+      } else if(l.type==='1mc'){
+        g.append('circle').attr('r',5).attr('fill','#F76B1C').attr('stroke','#7A3208').attr('stroke-width',0.8);
+      } else {
+        g.append('circle').attr('r',4.5).attr('fill','#FFFFFF').attr('stroke','#555').attr('stroke-width',1);
+      }
+    });
+}
+
+init();
+</script>
+</body>
+</html>
