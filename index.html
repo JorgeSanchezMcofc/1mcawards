@@ -368,6 +368,75 @@ svg#usmap{display:block;width:100%;cursor:crosshair}
         <a href="https://www.google.com" target="_blank" class="nom-btn">Submit a Nomination</a>
       </div>
     </div>
+
+    <!-- FT FAQs accordion -->
+    <div class="faq-section">
+      <button class="faq-section-toggle" onclick="toggleFaqSection(this)">
+        <span>Frequently Asked Questions</span>
+        <span class="faq-section-icon">+</span>
+      </button>
+      <div class="faq-section-body">
+
+        <div class="faq-item faq-subsection"><button class="faq-q" onclick="toggleFaq(this)">GENERAL <span class="faq-icon">+</span></button><div class="faq-a" style="display:block;font-weight:600;padding-bottom:.25rem;color:var(--muted)"></div></div>
+
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What are the 2026 Summit Awards? <span class="faq-icon">+</span></button><div class="faq-a">The Summit Awards recognize outstanding performance across the Kauffman FastTrac affiliate network. Each award highlights a different dimension of excellence, from program volume and long-term commitment to ecosystem building. Awards are presented at the annual Summit in Kansas City, MO on July 28-30, 2026.</div></div>
+
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Who is eligible to receive an award? <span class="faq-icon">+</span></button><div class="faq-a">All awards are open to active FastTrac affiliates, with one exception: the Rising Star Affiliate Award is limited to affiliates who have been active for three years or fewer. The Outstanding Facilitator Award recognizes an individual facilitator rather than an organization.</div></div>
+
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Do affiliates need to apply or nominate themselves? <span class="faq-icon">+</span></button><div class="faq-a">For the data-driven awards (High Impact, Sustained Excellence, Rising Star, and Ecosystem Builder), no application is required. Winners are determined using cohort delivery and activity data pulled directly from our LMS and CRM. For the Outstanding Facilitator Award, a nomination must be submitted by a Program Director, Course Manager, or Fellow Facilitator.</div></div>
+
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How many awards can one affiliate win? <span class="faq-icon">+</span></button><div class="faq-a">An affiliate can be considered for multiple awards. Each award measures something different, so it is possible for the same organization to qualify for more than one recognition in the same year.</div></div>
+
+        <div class="faq-item faq-subsection"><button class="faq-q" onclick="toggleFaq(this)">THE AWARDS <span class="faq-icon">+</span></button><div class="faq-a" style="display:block;font-weight:600;padding-bottom:.25rem;color:var(--muted)"></div></div>
+
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is the High Impact Affiliate Award? <span class="faq-icon">+</span></button><div class="faq-a">This award recognizes the affiliate in each region that delivered the highest number of FastTrac cohorts in the past 12 months. It is about program delivery at scale. Winners are selected separately for the East Region and West Region. If there is a tie, the tiebreaker is total cohorts delivered over the affiliate's lifetime.</div></div>
+
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is the Sustained Excellence Award? <span class="faq-icon">+</span></button><div class="faq-a">This award honors long-term commitment combined with consistent delivery. It is calculated using a composite score: Years Active multiplied by Total Cohorts Delivered. It rewards affiliates that have made FastTrac a sustained, reliable presence in their community, not a one-time experiment. Winners are selected separately for the East Region and West Region.</div></div>
+
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is the Rising Star Affiliate Award? <span class="faq-icon">+</span></button><div class="faq-a">This award recognizes newer affiliates, those active for three years or fewer, who are already making a meaningful impact. Rather than measuring total volume, it measures pace: cohorts delivered divided by years active. A newer affiliate that hits the ground running has a real shot at this one. Winners are selected separately for the East Region and West Region.</div></div>
+
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is the Ecosystem Builder Award? <span class="faq-icon">+</span></button><div class="faq-a">This award is presented to every FastTrac affiliate that also operates an active 1 Million Cups community. It is not a competition with a single winner — every qualifying affiliate is recognized for their commitment to building a full entrepreneurship ecosystem. If your organization runs both FastTrac and a 1MC community, you will receive this award.</div></div>
+
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is the Outstanding Facilitator Award? <span class="faq-icon">+</span></button><div class="faq-a">This individual-level award recognizes FastTrac facilitators who create an engaging, memorable cohort experience, bring additional resources and connections into every session, and go above and beyond to connect entrepreneurs to each other and the broader ecosystem. Two awards are given per region. Nominees must be submitted by a Program Director, Course Manager, or Fellow Facilitator.</div></div>
+
+        <div class="faq-item faq-subsection"><button class="faq-q" onclick="toggleFaq(this)">REGIONS <span class="faq-icon">+</span></button><div class="faq-a" style="display:block;font-weight:600;padding-bottom:.25rem;color:var(--muted)"></div></div>
+
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How are the East Region and West Region defined? <span class="faq-icon">+</span></button><div class="faq-a">Regional assignments are based on your affiliate's location on file with Kauffman FastTrac. If you are unsure which region your organization belongs to, contact your Program Director or reach out to info@fasttrac.org.</div></div>
+
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Does the regional structure affect all awards? <span class="faq-icon">+</span></button><div class="faq-a">Not all awards are regional. The High Impact Affiliate Award, Sustained Excellence Award, and Rising Star Affiliate Award each have one winner per region. The Outstanding Facilitator Award is also regional, with two awards given per region. The Ecosystem Builder Award is not a competitive award and is presented to all qualifying affiliates across the network.</div></div>
+
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can an affiliate win an award in both regions? <span class="faq-icon">+</span></button><div class="faq-a">No. Each affiliate is assigned to one region and is only eligible for awards within that region.</div></div>
+
+        <div class="faq-item faq-subsection"><button class="faq-q" onclick="toggleFaq(this)">DATA AND MEASUREMENT <span class="faq-icon">+</span></button><div class="faq-a" style="display:block;font-weight:600;padding-bottom:.25rem;color:var(--muted)"></div></div>
+
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Where does the data come from for data-driven awards? <span class="faq-icon">+</span></button><div class="faq-a">Award calculations are drawn directly from our Learning Management System (LMS) and CRM. This includes cohort delivery records, affiliate tenure, and 1MC community activity. Affiliates do not need to submit separate data, but it is critical that your records in both systems are accurate and up to date.</div></div>
+
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is there a data cutoff date? <span class="faq-icon">+</span></button><div class="faq-a">Yes. Only cohorts and activity recorded before the data cutoff will count toward award calculations. The specific cutoff date will be communicated through affiliate channels. Please make sure all cohort records are entered and verified in the LMS before that date.</div></div>
+
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What counts as a delivered cohort for award purposes? <span class="faq-icon">+</span></button><div class="faq-a">A cohort must be fully completed and logged in the LMS to count. Cohorts that are in progress or not yet recorded at the time of the data pull will not be included in the calculation.</div></div>
+
+        <div class="faq-item faq-subsection"><button class="faq-q" onclick="toggleFaq(this)">OUTSTANDING FACILITATOR NOMINATION <span class="faq-icon">+</span></button><div class="faq-a" style="display:block;padding-bottom:.25rem;color:var(--muted);font-size:12px">Nominations open: May 1, 2026 &nbsp;&nbsp;|&nbsp;&nbsp; Nominations close: June 15, 2026</div></div>
+
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Who can nominate a facilitator? <span class="faq-icon">+</span></button><div class="faq-a">Nominations can be submitted by Program Directors, Course Managers, or Fellow Facilitators.</div></div>
+
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can a facilitator nominate themselves? <span class="faq-icon">+</span></button><div class="faq-a">No. Self-nominations are not accepted. The nomination must come from a Program Director, Course Manager, or Fellow Facilitator who can speak to the nominee's impact firsthand.</div></div>
+
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What should a nomination include? <span class="faq-icon">+</span></button><div class="faq-a">A strong nomination tells a story. It should address how the facilitator makes the cohort experience engaging, what additional resources or connections they bring into sessions, how they show up for entrepreneurs beyond the scheduled time, and how they actively connect participants to the broader ecosystem. Specific examples carry far more weight than general statements.</div></div>
+
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Where and how do I submit a nomination? <span class="faq-icon">+</span></button><div class="faq-a">Nominations are submitted through a link on the Summit website. The link will go live on May 1, 2026. If you cannot locate the link after May 1, contact info@fasttrac.org.</div></div>
+
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What happens after the nomination window closes on June 15? <span class="faq-icon">+</span></button><div class="faq-a">Nominations will be reviewed after the June 15 close date. Two recipients will be selected per region. Finalists and recipients will be notified before the Summit. All nominators will receive a confirmation once the review process is complete.</div></div>
+
+        <div class="faq-item faq-subsection"><button class="faq-q" onclick="toggleFaq(this)">SUMMIT AND LOGISTICS <span class="faq-icon">+</span></button><div class="faq-a" style="display:block;font-weight:600;padding-bottom:.25rem;color:var(--muted)"></div></div>
+
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Where and when will awards be presented? <span class="faq-icon">+</span></button><div class="faq-a">Awards will be presented at the 2026 Kauffman FastTrac Summit in Kansas City, MO, July 28-30, 2026.</div></div>
+
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Will award winners be notified in advance? <span class="faq-icon">+</span></button><div class="faq-a">Yes. Winners will be notified before the Summit so they can plan to attend. Details on notification timing will be communicated through affiliate channels.</div></div>
+
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What if I have additional questions not covered here? <span class="faq-icon">+</span></button><div class="faq-a">Reach out to your Program Director or contact the FastTrac team directly at info@fasttrac.org. We are happy to help. Note: This FAQ will be updated as additional details are confirmed. Always check with your Program Director for the most current information.</div></div>
+
+      </div>
+    </div>
   </div>
 </div>
 
